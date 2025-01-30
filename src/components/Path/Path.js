@@ -13,13 +13,12 @@ export default function Path() {
   const moveShip = (targetPos, animationDuration, shipDuration) => {
     if (!shipRef.current) return;
 
-    // Compute the target rotation using lookAt
+    
     const tempObject = new THREE.Object3D();
     tempObject.position.copy(shipRef.current.position);
     tempObject.lookAt(targetPos);
     const targetQuaternion = tempObject.quaternion.clone();
 
-    // Animate position
     gsap.to(shipRef.current.position, {
       x: targetPos.x,
       y: targetPos.y,
